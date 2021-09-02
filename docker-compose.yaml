@@ -11,11 +11,11 @@ services:
                 -root: "TRUE"
             env_file: .env
             ports: 
-                - 10001:8787
-                - 10000:3838
+                - 20001:8787
+                - 20000:3838
             volumes:
-                - '/home/datos/data/lidar:/data/lidar'
-                - '/mnt/d/data/nas:/data/nas'
+                - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\Proyectos\EDP\Cosmos\R_Analysis:/home/pablo.lopez'
+
 
 
 

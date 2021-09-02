@@ -10,21 +10,13 @@ RUN /rocker_scripts/install_tidyverse.sh
 
 RUN /rocker_scripts/install_geospatial.sh
 
-RUN mkdir /ingenica_scripts/
+RUN mkdir /scripts/
 
-COPY scripts/install_img_video.sh /ingenica_scripts/install_img_video.sh
+COPY userscripts /scripts 
 
-RUN /ingenica_scripts/install_img_video.sh
+RUN /scripts/install_img_video.sh
 
-COPY scripts/install_img_video.sh /ingenica_scripts/install_ingenicar_dependencies.sh
+RUN /scripts/install_dependencies.sh
 
-RUN /ingenica_scripts/install_ingenicar_dependencies.sh
-
-COPY scripts/install_ssh.sh /ingenica_scripts/install_ssh.sh
-
-RUN /ingenica_scripts/install_ssh.sh
-
-COPY scripts/install_ssh.sh /ingenica_scripts/install_ssh.sh
-
-COPY scripts/users.sh /ingenica_scripts/install_ssh.sh
+RUN /scripts/install_ssh.sh
 
