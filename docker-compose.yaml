@@ -1,11 +1,11 @@
 version: "3.9"
 services: 
         rdatos:
-            image: docker_datos:4.0.5
+            image: docker_datos:4.1.0
             container_name: rdatos
             build:
                 context: .
-                dockerfile: ./dockerfiles/R4.0.5/Dockerfile
+                dockerfile: ./dockerfiles/R4.1.0/Dockerfile
             restart: always
             environment:
                 -root: "TRUE"
@@ -14,7 +14,7 @@ services:
                 - 20001:8787
                 - 20000:3838
             volumes:
-                - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\Proyectos\EDP\Cosmos\R_Analysis:/home/pablo.lopez'
+                - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\projectsr:/home/pablo.lopez'
 
 
 
