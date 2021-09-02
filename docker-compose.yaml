@@ -1,0 +1,25 @@
+version: "3.9"
+services: 
+        rdatos:
+            image: docker_datos:4.0.5
+            container_name: rdatos
+            build:
+                context: .
+                dockerfile: ./dockerfiles/R4.0.5/Dockerfile
+            restart: always
+            environment:
+                -root: "TRUE"
+            env_file: .env
+            ports: 
+                - 10001:8787
+                - 10000:3838
+            volumes:
+                - '/home/datos/data/lidar:/data/lidar'
+                - '/mnt/d/data/nas:/data/nas'
+
+
+
+
+
+
+
