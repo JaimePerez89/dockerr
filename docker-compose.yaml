@@ -15,6 +15,7 @@ services:
                 - 20000:3838
             volumes:
                 - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\projectsr\cosmosr:/home/pablo.lopez/cosmosr'
+                - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\izertisr:/home/pablo.lopez/izertisr'
 
 
 
