@@ -24,7 +24,7 @@ COPY rstudio-prefs.json /etc/rstudio/rstudio-prefs.json
 
 ARG USER
 
-COPY .ssh /home/${USER}/.ssh
+COPY --chmod=0400 .ssh /home/${USER}/.ssh
 
 COPY .gitconfig /home/${USER}/.gitconfig
 
