@@ -6,7 +6,7 @@ Dockerizar desarrollo de datos. El objetivo de este repositorio es garantizar un
   
   * Paquetes geospaciales
   
-  * Paquetes necesarios de [ingenicar]([https://github.com/ingenica/ingenicar])
+  * Otros paquetes necesarios
 
 * Shiny Proxy
 
@@ -21,25 +21,29 @@ Para más detalles sobre la dockerización de R ir a [https://github.com/rocker-
 1. **Clonar el repositorio en el servidor**
 
 ```bash
-git clone https://github.com/ingenica/docker_datos
+git clone https://github.com/PabloRL/dockerr
 ```
 
-1. **Modificar el fichero** [.env](./.env) en con el nombre y contraseña que tendrá el administrador del contendor. (Por de defecto: RSTUDIO y RSTUDIO)
+2. **Modificar el fichero** [.env](./.env) en con el nombre y contraseña que tendrá el administrador del contendor. (Por de defecto: RSTUDIO y RSTUDIO)
 
-2. **Levantar el contenedor**
+3. **Crear claves shh** y guardarlas en [.ssh](./.ssh/)
+
+4. **Añadir nombre y mail para identificarse en github** en [.gitconfig](./.config)
+
+5. **Levantar el contenedor**
 
 ```bash
 docker compose up -d --build
 ```
 
-1. **Creación de usarios en el contendor** . Para ello, abrimos una terminal del contenedor (rdatos es el nombre del contenedor por defecto) y creamos tantos usuarios de linux como sean necesarios manualmente o por medio del script [/ingenica_scripts/users.sh](./scripts/users.sh) y el fichero con los nombres de usuario [/ingenica_scripts/users.txt](./scripts/users.txt) que estarán dentro del contenedor creado.
+6. **Creación de usarios en el contendor** . Para ello, abrimos una terminal del contenedor (rdatos es el nombre del contenedor por defecto) y creamos tantos usuarios de linux como sean necesarios manualmente o por medio del script [/user_scripts/users.sh](./user_scripts/users.sh) y el fichero con los nombres de usuario [/user_scripts/users.txt](./user_scripts/users.txt) que estarán dentro del contenedor creado.
 
 ```bash
 docker exec -ti rdatos bash
 ```
 
 ```bash
-sudo /ingenica_scripts/users.sh
+sudo /user_scripts/users.sh
 ```
 
 ## Actualización de versión de R
@@ -52,6 +56,6 @@ El fichero [docker-compose.yaml](./docker-compose.yaml) es el encargado de levan
 
 Al levantar por primera vez el contenedor o al modificar el dockerfile referenciando en build- > dockerfile se crea la imagen docker_datos:4.0.5 (4.0.5 es la etiqueta de la imagen que coincide con la version de R utilizada) 
 
-Los puertos que se quieren conectar entre huésped y anfitrión se definen en **ports**. En este caso conectamos el 3838 propio del shinyproxy con el 10000 del servidor y el 8787 propio del Rstudio server cpn el 10001 del servidor.
+Los puertos que se quieren conectar entre huésped y anfitrión se definen en **ports**. En este caso conectamos el 3838 propio del shinyproxy con el 20000 del servidor y el 8787 propio del Rstudio server cpn el 20001 del servidor.
 
-Por último, la sincronización de carpetas entre anfitrión y huésped se realiza en el apartado **volumes**. En este caso se definen dos carpetas, una para ficheros, que por su tamaño o número (archivos .nc del LiDAR), no puedan ser almcenados en el NAS, y otra que vincula directamente datos dentro del NAS con una carpeta dento del directorio raíz del contendor.
+Por último, la sincronización de carpetas entre anfitrión y huésped se realiza en el apartado **volumes**. 
