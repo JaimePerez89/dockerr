@@ -4,7 +4,9 @@ install2.r --error --skipinstalled -r $CRAN -n $NCPUS \
     rvest \
     Rcurl \
     RJSONIO \
-    nngeo 
+    nngeo \
+    RPostgreSQL \
+    getPass \
 
 
 
