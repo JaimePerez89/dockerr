@@ -6,6 +6,8 @@ services:
             build:
                 context: .
                 dockerfile: ./dockerfiles/R4.1.0/Dockerfile
+                args: 
+                    USER: ${USER} 
             restart: always
             environment:
                 -root: "TRUE"
@@ -16,11 +18,4 @@ services:
             volumes:
                 - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\projectsr\cosmosr:/home/pablo.lopez/cosmosr'
                 - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\izertisr:/home/pablo.lopez/izertisr'
-
-
-
-
-
-
-
-
+            

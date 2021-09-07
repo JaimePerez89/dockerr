@@ -20,3 +20,10 @@ RUN /scripts/install_dependencies.sh
 
 RUN /scripts/install_ssh.sh
 
+COPY rstudio-prefs.json /etc/rstudio/rstudio-prefs.json
+
+ARG USER
+
+COPY .ssh /home/${USER}/.ssh
+
+COPY .gitconfig /home/${USER}/.gitconfig
