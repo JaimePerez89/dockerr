@@ -1,5 +1,5 @@
-# docker_datos
-Dockerizar desarrollo de datos. El objetivo de este repositorio es garantizar un environment de R común al equipo de datos de Ingénica STS. Para ello, es necesario un servidor accesible por todos sus miembros. En este servidor, a través de docker, se levantará un contendor que implemente un servidor linux con varias aplicaciones utilizadas por el equipo de datos.
+# dockerr
+Dockerizar desarrollo de datos. El objetivo de este repositorio es garantizar un environment de R común a un equipo de trabajo. Para ello, es necesario un servidor accesible por todos sus miembros. En este servidor, a través de docker, se levantará un contendor que implemente un servidor linux con varias aplicaciones utilizadas por el equipo.
 
 * Rstudio Server 
   * Paquetes de tidyverse
