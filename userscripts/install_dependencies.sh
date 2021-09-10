@@ -7,6 +7,7 @@ install2.r --error --skipinstalled -r $CRAN -n $NCPUS \
     nngeo \
     RPostgreSQL \
     getPass \
+    plotly \
 
 
 
