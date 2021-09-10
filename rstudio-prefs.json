@@ -15,5 +15,7 @@
     "knit_working_dir": "project",
     "spelling_dictionary_language": "es_ES",
     "posix_terminal_shell": "bash",
-    "show_hidden_files": true
+    "show_hidden_files": true,
+    "save_workspace": "never",
+    "load_workspace": false
 }
