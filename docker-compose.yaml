@@ -1,11 +1,11 @@
 version: "3.9"
 services: 
-        rdatos:
-            image: docker_datos:4.1.0
-            container_name: rdatos
+        apoloenv:
+            image: docker_datos:3.5.1
+            container_name: apolo
             build:
                 context: .
-                dockerfile: ./dockerfiles/R4.1.0/Dockerfile
+                dockerfile: ./dockerfiles/R3.5.1_apolo/Dockerfile
                 args: 
                     USER: ${USER} 
             restart: always
@@ -14,7 +14,6 @@ services:
             env_file: .env
             ports: 
                 - 20001:8787
-                - 20000:3838
             volumes:
                 - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\projectsr\cosmosr:/home/pablo.lopez/cosmosr'
                 - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\izertisr:/home/pablo.lopez/izertisr'
