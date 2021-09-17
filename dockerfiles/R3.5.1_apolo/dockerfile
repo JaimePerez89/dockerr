@@ -1,0 +1,35 @@
+FROM rocker/rstudio:3.5.1
+
+
+RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+  libxml2-dev \
+  libcairo2-dev \
+  libsqlite3-dev \
+  libmariadbd-dev \
+  libmariadb-client-lgpl-dev \
+  libpq-dev \
+  libssh2-1-dev \
+  unixodbc-dev \
+  libv8-dev \
+  default-jdk \
+  liblzma-dev \
+  libicu-dev \
+  libbz2-dev \
+  tcl8.6-dev \
+  tk8.6-dev
+
+COPY userscripts /scripts
+
+RUN /scripts/locale.sh
+
+RUN /scripts/install_ssh.sh
+
+ARG USER
+
+COPY user-settings /home/${USER}/.rstudio/monitored/user-settings/
+
+COPY --chmod=0400 .ssh /home/${USER}/.ssh
+
+COPY .gitconfig /home/${USER}/.gitconfig
+
+RUN Rscript /scripts/install_apolo_packages.R
