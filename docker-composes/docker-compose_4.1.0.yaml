@@ -1,0 +1,21 @@
+version: "3.9"
+services: 
+        rdatos:
+            image: docker_datos:4.1.0
+            container_name: rdatos
+            build:
+                context: .
+                dockerfile: ./dockerfiles/R4.1.0/Dockerfile
+                args: 
+                    USER: ${USER} 
+            restart: always
+            environment:
+                -root: "TRUE"
+            env_file: .env
+            ports: 
+                - 20001:8787
+                - 20000:3838
+            volumes:
+                - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\projectsr\cosmosr:/home/pablo.lopez/cosmosr'
+                - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\izertisr:/home/pablo.lopez/izertisr'
+            
