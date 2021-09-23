@@ -7,6 +7,7 @@ r["CRAN"] <- cran
 
 options(repos = r)
 
+Sys.setlocale("LC_ALL","es_ES.UTF-8")
 
 # paquete disponibles en este repositorio en el momento de generar la imagen
 av_pcks <- available.packages()
