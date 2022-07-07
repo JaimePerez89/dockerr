@@ -1,20 +1,27 @@
 version: "3.9"
 services: 
-        apoloenv:
-            image: docker_datos:3.5.1
-            container_name: apolo
-            build:
-                context: .
-                dockerfile: ./dockerfiles/R3.5.1_apolo/Dockerfile
-                args: 
-                    USER: ${USER} 
-            restart: always
-            environment:
-                -root: "TRUE"
-            env_file: .env
-            ports: 
-                - 20001:8787
-            volumes:
-                - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\projectsr\cosmosr:/home/pablo.lopez/cosmosr'
-                - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\izertisr:/home/pablo.lopez/izertisr'
-            
+  r411:
+    image: docker_datos:4.1.1
+    container_name: r4.1.1
+    build:
+      context: .
+      dockerfile: ./dockerfiles/R4.1.1/Dockerfile
+      args: 
+        USER: ${USER} 
+    restart: always
+    environment:
+      -root: "TRUE"
+    env_file: .env
+    ports: 
+      - 20001:8787
+      - 20000:3737
+    volumes:
+      - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\projectsr\cosmosr:/home/pablo.lopez/cosmosr'
+      - 'C:\Users\pablo.lopez\OneDrive - Izertis\Documentos\GitHub\izertisr:/home/pablo.lopez/izertisr'
+
+  jupyter:
+    image: jupyter/datascience-notebook
+    container_name: jupyter for datascience
+    env_file: .env
+    ports:
+      - 20002:8888

@@ -33,3 +33,5 @@ COPY --chmod=0400 .ssh /home/${USER}/.ssh
 COPY .gitconfig /home/${USER}/.gitconfig
 
 RUN Rscript /scripts/install_apolo_packages.R
+
+
